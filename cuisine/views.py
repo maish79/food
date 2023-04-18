@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse
+from . import models
 
 # Create your views here.
 
@@ -24,6 +25,7 @@ cuisines = [
 ]
 
 def home(request):
+    cuisines = models.Cuisine.objects.all()
     context = {
         'cuisines' : cuisines
     }

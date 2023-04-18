@@ -8,9 +8,10 @@
     <div class="card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">{{ cuisine.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{ cuisine.author }}</h6>
+          <p class="card-text">{{ cuisine.description }}</p>
           <h6 class="card-subtitle mb-2 text-body-secondary">{{ cuisine.ingredients }}</h6>
-          <p class="card-text">{{ cuisine.prep_time }}</p>
-          <h6 class="card-subtitle mb-2 text-body-secondary">{{ cuisine.created_at }}</h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{ cuisine.created_date }}</h6>
           <a href="#" class="card-link"> view Cuisine </a>
           
         </div>
