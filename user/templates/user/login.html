@@ -1,0 +1,13 @@
+{% block main-content %}
+{% load crispy_forms_tags %}
+
+<h2>Login</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button type="submit">Log in</button>
+</form>
+<div class="border-top pt-3">
+    <a href="#">Dont't have an account? Register here. </a>
+</div>
+{% endblock %}
