@@ -12,7 +12,7 @@
           <p class="card-text">{{ cuisine.description }}</p>
           <h6 class="card-subtitle mb-2 text-body-secondary">{{ cuisine.ingredients }}</h6>
           <h6 class="card-subtitle mb-2 text-body-secondary">{{ cuisine.created_date }}</h6>
-          <a href="#" class="card-link"> view Cuisine </a>
+          <a href="{% url 'cuisine-detail' cuisine.pk %}" class="card-link"> view Cuisine </a>
           
         </div>
       </div>

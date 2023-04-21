@@ -1,35 +1,36 @@
 from django.shortcuts import render, HttpResponse
-from . import models
+from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Cuisine
 
 # Create your views here.
 
-cuisines = [
-    {
-        'title': 'doner',
-        'ingredients': 'chicken, salad, curry',
-        'prep_time' : 'one hour',
-        'created_at' : 'jan 13, 2023'
-    },
-     {
-        'title': 'hamburger',
-        'ingredients': 'beef, salad, curry, tomatoes',
-        'prep_time' : 'two hours',
-        'created_at' : 'jan 13, 2023'
-    },
-     {
-        'title': 'lasagne',
-        'ingredients': 'mince meast, cheese, tomato sause',
-        'prep_time' : 'one hour',
-        'created_at' : 'jan 13, 2023'
-    },
-]
+class CuisineListView(ListView):
+    model = Cuisine
+    template_name = 'cuisine/home.html'
+    context_object_name = 'cuisines'
+  
 
 def home(request):
-    cuisines = models.Cuisine.objects.all()
+    cuisines = Cuisine.objects.all()
     context = {
-        'cuisines' : cuisines
+        'cuisines': cuisines
     }
     return render(request, 'cuisine/home.html', context)
+
+
+class CuisineDetailView(DetailView):
+    model = Cuisine
+    
+
+class CuisineCreateView(LoginRequiredMixin, CreateView) :
+    model = Cuisine
+    fields = ['title', 'description'] 
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
 
 
 def about(request):
