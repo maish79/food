@@ -15,6 +15,9 @@ class Cuisine(models.Model):
     def __str__(self):
         return self.title
 
+    def get_comments(self):
+        return self.comments.order_by('-created_date')
+
 class Comment(models.Model):
     cuisine = models.ForeignKey(Cuisine, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
