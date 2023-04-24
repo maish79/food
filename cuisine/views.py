@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
 from django.urls import reverse_lazy
 from .models import Cuisine, Comment
 from .forms import CommentForm
@@ -77,3 +78,11 @@ def add_comment(request, cuisine_id):
     else:
         form = CommentForm()
     return render(request, 'cuisine/comment_form.html', {'form': form}) 
+
+@login_required
+@require_POST
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id)
+    if comment.author == request.user or request.user.is_staff:
+        comment.delete()
+    return redirect('cuisine-detail', pk=comment.cuisine.pk)

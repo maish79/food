@@ -11,6 +11,7 @@ urlpatterns = [
     path('cuisine/<int:pk>/update/', views.CuisineUpdateView.as_view(), name='cuisine-update'),
     path('cuisine/<int:pk>/delete/', views.CuisineDeleteView.as_view(), name='cuisine-delete'),
     path('<int:cuisine_id>/add-comment/', views.add_comment, name='add-comment'),
+    path('delete-comment/<int:comment_id>/', views.delete_comment, name='delete-comment'),
     path('about/', views.about, name='about'),
    
 ]

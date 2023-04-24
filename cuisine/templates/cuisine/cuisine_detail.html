@@ -37,12 +37,19 @@
                         <div class="card-body">
                             <p class="card-subtitle mb-2 text-muted"><strong>{{ comment.author }}</strong> - {{ comment.created_date }}</p>
                             <p class="card-text">{{ comment.text }}</p>
+                            {% if comment.author == user or user.is_staff %}
+                            <form method="POST" action="{% url 'delete-comment' comment.pk %}">
+                            {% csrf_token %}
+                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                            </form>
+                             {% endif %}
                         </div>
                     </div>
                 {% endfor %}
                 <p><a class="btn btn-primary" href="{% url 'add-comment' cuisine_id=object.id %}">Add Comment</a></p>
             </div>
         </div>
+        
     </div>
     
 </div>
