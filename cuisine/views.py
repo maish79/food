@@ -1,8 +1,10 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
-from .models import Cuisine
+from .models import Cuisine, Comment
+from .forms import CommentForm
 
 # Create your views here.
 
@@ -57,8 +59,21 @@ class CuisineDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView) :
 
 
     
-
-
-
 def about(request):
     return render(request, 'cuisine/about.html')
+
+
+@login_required
+def add_comment(request, cuisine_id):
+    cuisine = get_object_or_404(Cuisine, pk=cuisine_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.cuisine = cuisine
+            comment.author = request.user
+            comment.save()
+            return redirect('cuisine-detail', pk=cuisine_id)
+    else:
+        form = CommentForm()
+    return render(request, 'cuisine/comment_form.html', {'form': form}) 

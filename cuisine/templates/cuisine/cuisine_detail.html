@@ -35,13 +35,12 @@
                 {% for comment in cuisine.get_comments %}
                     <div class="card mb-3">
                         <div class="card-body">
-                            
                             <p class="card-subtitle mb-2 text-muted"><strong>{{ comment.author }}</strong> - {{ comment.created_date }}</p>
                             <p class="card-text">{{ comment.text }}</p>
                         </div>
                     </div>
                 {% endfor %}
-                <p><a class="btn btn-primary" href="">Add Comment</a></p>
+                <p><a class="btn btn-primary" href="{% url 'add-comment' cuisine_id=object.id %}">Add Comment</a></p>
             </div>
         </div>
     </div>

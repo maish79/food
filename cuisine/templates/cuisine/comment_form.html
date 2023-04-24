@@ -1,0 +1,29 @@
+{% extends 'cuisine/base.html' %}
+
+{% block main-content %}
+
+
+
+<div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Comments</h5>
+      {% for comment in cuisine.get_comments %}
+        <div class="card mb-3">
+          <div class="card-body">
+            <p class="card-subtitle mb-2 text-muted"><strong>{{ comment.author }}</strong> - {{ comment.created_date }}</p>
+            <p class="card-text">{{ comment.text }}</p>
+          </div>
+        </div>
+      {% endfor %}
+  
+      <h6>Add a Comment</h6>
+      <h1>Add Comment</h1>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+
+   {% endblock %}

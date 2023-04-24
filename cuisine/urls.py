@@ -1,5 +1,6 @@
 from django.urls import path
-from . import views
+
+from .import views
 
 
 
@@ -9,6 +10,7 @@ urlpatterns = [
     path('cuisine/create', views.CuisineCreateView.as_view(), name='cuisine-create'),
     path('cuisine/<int:pk>/update/', views.CuisineUpdateView.as_view(), name='cuisine-update'),
     path('cuisine/<int:pk>/delete/', views.CuisineDeleteView.as_view(), name='cuisine-delete'),
+    path('<int:cuisine_id>/add-comment/', views.add_comment, name='add-comment'),
     path('about/', views.about, name='about'),
    
 ]
