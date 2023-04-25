@@ -2,8 +2,8 @@
 
 
 {% block main-content %}
-<div class="container mt-5">
-  <h1>{{ user.username }}</h1>
-  
-</div>
+<h1>{{ user_profile.user.username }}</h1>
+<img width="200px" height="200px" src="{{ user_profile.image.url }}" alt="Profile Picture">
+<p>{{ user_profile.bio }}</p>
+<p>{{ user_profile.location }}</p>
 {% endblock %} 
