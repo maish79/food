@@ -1,11 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
 
 class Cuisine(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
+    image = CloudinaryField('image', default='https://res.cloudinary.com/dlclpbfkf/image/upload/v1680545745/food-placeholder_j41avo.png')
     ingredients = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
 
