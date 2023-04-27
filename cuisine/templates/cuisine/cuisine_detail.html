@@ -4,16 +4,20 @@
 
 <div class="row">
     <div class="col-md-8">
-        <h1>Recipe # {{ object.id }}</h1>
+        <h1 class="my-4">Recipe # {{ object.id }}</h1>
 
-        <div class="card mb-3">
+        <div class="card mb-4">
             <div class="card-body">
                 <h5 class="card-title">{{ object.title }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ object.author }}</h6>
                 <p class="card-text">{{ object.description }}</p>
-                <h6 class="card-subtitle mb-2 text-muted">{{ object.ingredients }}</h6>
-                <h6 class="card-subtitle mb-2 text-muted">{{ object.created_date }}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Ingredients:</h6>
+                <p class="card-text">{{ object.ingredients }}</p>
+                <p class="card-text"><small class="text-muted">Created on {{ object.created_date|date:"F jS, Y" }}</small></p>
             </div>
+            {% if object.image %}
+            <img src="{{ object.image.url }}" class="card-img-top" alt="{{ object.title }}">
+            {% endif %}
         </div>
 
         {% if object.author == user or user.is_staff %}
@@ -29,7 +33,7 @@
     </div>
 
     <div class="col-md-4">
-        <div class="card mb-3">
+        <div class="card mb-4">
             <div class="card-body">
                 <h5 class="card-title">Comments</h5>
                 {% for comment in cuisine.get_comments %}
@@ -53,6 +57,5 @@
     </div>
     
 </div>
-
 
 {% endblock %}
