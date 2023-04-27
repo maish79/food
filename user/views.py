@@ -20,25 +20,46 @@ def register(request):
         form = forms.UserRegisterForm()
     return render(request, 'user/register.html', {'form': form})
 
-@login_required()
+@login_required
 def profile(request):
-    user_profile = UserProfile.objects.get(user=request.user)
-    context = {'user_profile': user_profile}
-    return render(request, 'user/profile.html', context)
+    try:
+        user_profile = UserProfile.objects.get(user=request.user)
+    except UserProfile.DoesNotExist:
+        # Handle the case where the user profile does not exist
+        # For example, you can redirect the user to a create profile page
+        return redirect('create-profile')
+    return render(request, 'user/profile.html', {'user_profile': user_profile})
 
 
-    
-@login_required()
-def update_profile(request):
-    user_profile = request.user.userprofile
+@login_required
+def user_profile(request):
+    try:
+        user_profile = UserProfile.objects.get(user=request.user)
+    except UserProfile.DoesNotExist:
+        user_profile = None
+    return render(request, 'user_profile.html', {'user_profile': user_profile})
 
+@login_required
+def edit_profile(request):
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=user_profile)
+       
+        form = UserProfileForm(request.POST, request.FILES, instance=request.user.userprofile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your profile has been updated!')
-            return redirect('profile')
+            return redirect('user/profile') # replace 'profile' with the name of your profile view
     else:
-        form = UserProfileForm(instance=user_profile)
+        form = UserProfileForm(instance=request.user.userprofile)
+    return render(request, 'edit_profile.html', {'form': form})
 
-    return render(request, 'user/update_profile.html', {'form': form})
+@login_required
+def create_profile(request):
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST)
+        if form.is_valid():
+            user_profile = form.save(commit=False)
+            user_profile.user = request.user
+            user_profile.save()
+            return redirect('user-profile')
+    else:
+        form = UserProfileForm()
+    return render(request, 'create_profile.html', {'form': form})

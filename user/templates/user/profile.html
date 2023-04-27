@@ -2,8 +2,8 @@
 
 
 {% block main-content %}
-<h1>{{ user_profile.user.username }}</h1>
-<img width="200px" height="200px" src="{{ user_profile.image.url }}" alt="Profile Picture">
+<h1>{{ user_profile.user }}'s Profile</h1>
+<img width="200px" height="200px" src="https://res.cloudinary.com/dlclpbfkf/image/upload/v1682513141/placeholder_kffdba.png" alt="Profile Picture">
 <p>{{ user_profile.bio }}</p>
 <p>{{ user_profile.location }}</p>
 {% endblock %} 
