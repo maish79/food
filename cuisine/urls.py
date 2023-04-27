@@ -13,5 +13,7 @@ urlpatterns = [
     path('<int:cuisine_id>/add-comment/', views.add_comment, name='add-comment'),
     path('delete-comment/<int:comment_id>/', views.delete_comment, name='delete-comment'),
     path('about/', views.about, name='about'),
+    path('contact/', views.contact_view, name='contact'),
+    path('success/', views.success_view, name='success'),
    
 ]

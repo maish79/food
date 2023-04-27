@@ -4,8 +4,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.urls import reverse_lazy
-from .models import Cuisine, Comment
-from .forms import CommentForm
+from .models import Cuisine, Comment, Contact
+from .forms import CommentForm, ContactForm
 
 # Create your views here.
 
@@ -86,3 +86,24 @@ def delete_comment(request, comment_id):
     if comment.author == request.user or request.user.is_staff:
         comment.delete()
     return redirect('cuisine-detail', pk=comment.cuisine.pk)
+
+def contact_view(request):
+    # If the form has been submitted...
+    if request.method == 'POST':
+        # Create a new Contact object with the submitted form data
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact = Contact.objects.create(
+                name=form.cleaned_data['name'],
+                email=form.cleaned_data['email'],
+                subject=form.cleaned_data['subject']
+            )
+            # Redirect to a "success" page
+            return redirect('success')
+    # If the form hasn't been submitted, render the empty form
+    else:
+        form = ContactForm()
+    return render(request, 'cuisine/contact.html', {'form': form})
+
+def success_view(request):
+    return render(request, 'cuisine/success.html')
