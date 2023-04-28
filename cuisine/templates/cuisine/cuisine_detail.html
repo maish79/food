@@ -1,4 +1,5 @@
 {% extends 'cuisine/base.html' %}
+{% load cloudinary %}
 
 {% block main-content %}
 
@@ -9,16 +10,18 @@
         <div class="card mb-4">
             <div class="card-body">
                 <h5 class="card-title">{{ object.title }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{ object.author }}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Author:</h6>
+                <p class="card-text">{{ object.author }}</p>
+                <h6 class="card-subtitle mb-2 text-muted">Description:</h6>
                 <p class="card-text">{{ object.description }}</p>
                 <h6 class="card-subtitle mb-2 text-muted">Ingredients:</h6>
                 <p class="card-text">{{ object.ingredients }}</p>
                 <p class="card-text"><small class="text-muted">Created on {{ object.created_date|date:"F jS, Y" }}</small></p>
             </div>
             {% if object.image %}
-            <img src="{{ object.image.url }}" class="card-img-top" alt="{{ object.title }}">
+                <img src="{% cloudinary_url object.image.url %}" alt="{{ object.title }}">
             {% endif %}
-        </div>
+            </div>
 
         {% if object.author == user or user.is_staff %}
         <div class="row">

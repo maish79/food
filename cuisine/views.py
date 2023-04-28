@@ -29,7 +29,7 @@ class CuisineDetailView(DetailView):
 
 class CuisineCreateView(LoginRequiredMixin, CreateView) :
     model = Cuisine
-    fields = ['title', 'description'] 
+    fields = ['title', 'description','ingredients', 'image'] 
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -38,7 +38,7 @@ class CuisineCreateView(LoginRequiredMixin, CreateView) :
 
 class CuisineUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView) :
     model = Cuisine
-    fields = ['title', 'description'] 
+    fields = ['title', 'description','ingredients', 'image'] 
 
     def test_func(self):
         cuisine = self.get_object()

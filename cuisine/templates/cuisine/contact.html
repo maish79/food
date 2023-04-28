@@ -2,10 +2,27 @@
 
 {% block main-content %}
 
-<h1>Contact Us</h1>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-  {% endblock %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="text-center mb-4">Contact Us</h1>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="{{ form.name.id_for_label }}">Name:</label>
+          <input type="{{ form.name.field.widget.input_type }}" id="{{ form.name.id_for_label }}" name="{{ form.name.name }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="{{ form.email.id_for_label }}">Email:</label>
+          <input type="{{ form.email.field.widget.input_type }}" id="{{ form.email.id_for_label }}" name="{{ form.email.name }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="{{ form.subject.id_for_label }}">Subject:</label>
+          <textarea id="{{ form.subject.id_for_label }}" name="{{ form.subject.name }}" rows="5" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
