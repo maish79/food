@@ -2,7 +2,7 @@
 
 {% block main-content %}
 
-<div class="container">
+<div class="container cuisine-container">
   <h1 class="my-4">Cuisine</h1>
 
   {% for cuisine in cuisines %}
@@ -14,12 +14,12 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">{{ cuisine.title }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Author:</h6>
-          <p class="card-text">{{ cuisine.author }}</p>
-          <h6 class="card-subtitle mb-2 text-muted">Description:</h6>
-          <p class="card-text">{{ cuisine.description }}</p>
-          <h6 class="card-subtitle mb-2 text-muted">Ingredients:</h6>
-          <p class="card-text">{{ cuisine.ingredients }}</p>
+          <h6 class="card-subtitle mb-2 text-muted">Author:{{ cuisine.author }}</h6>
+        
+          <h6 class="card-subtitle mb-2 text-muted">Description:{{ cuisine.description }}</h6>
+         
+          <h6 class="card-subtitle mb-2 text-muted">Ingredients:{{ cuisine.ingredients }}</h6>
+          
           <p class="card-text"><small class="text-muted">Created on {{ cuisine.created_date|date:"F jS, Y" }}</small></p>
           <a href="{% url 'cuisine-detail' cuisine.pk %}" class="btn btn-primary">View Cuisine</a>
         </div>

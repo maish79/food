@@ -10,12 +10,12 @@
         <div class="card mb-4">
             <div class="card-body">
                 <h5 class="card-title">{{ object.title }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Author:</h6>
-                <p class="card-text">{{ object.author }}</p>
-                <h6 class="card-subtitle mb-2 text-muted">Description:</h6>
-                <p class="card-text">{{ object.description }}</p>
-                <h6 class="card-subtitle mb-2 text-muted">Ingredients:</h6>
-                <p class="card-text">{{ object.ingredients }}</p>
+                <h6 class="card-subtitle mb-2 text-muted">Author:{{ object.author }}</h6>
+               
+                <h6 class="card-subtitle mb-2 text-muted">Description:{{ object.description }}</h6>
+                
+                <h6 class="card-subtitle mb-2 text-muted">Ingredients:{{ object.ingredients }}</h6>
+                
                 <p class="card-text"><small class="text-muted">Created on {{ object.created_date|date:"F jS, Y" }}</small></p>
             </div>
             {% if object.image %}
