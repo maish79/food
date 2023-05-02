@@ -1,3 +1,6 @@
+
+
+
 .navbar-img {
     font-size: 30px;
     font-weight: bolder;
@@ -8,8 +11,9 @@
     margin-left: 5px;
 }
 
+/* footer section */
 footer {
-    font-size: 20px;
+    font-size: 15px;
     width: 100%;
     text-align: center;
     color: #ffff;
@@ -28,6 +32,8 @@ footer {
     font-size: 30px;
     
 }
+
+/* cuisine home section */
 
 .cuisine-container {
     margin-top: 50px;
@@ -114,3 +120,63 @@ footer {
     background-color: #fff;
     box-shadow: 
   }
+
+  /* carousell style */
+  .carousel-item {
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  }
+  
+  .carousel-caption h5 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .carousel-caption p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cuisine-container {
+    margin-top: 2rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .carousel-item {
+      height: 300px;
+    }
+    
+    .carousel-caption {
+      top: 40%;
+    }
+    
+    .carousel-caption h5 {
+      font-size: 2rem;
+    }
+    
+    .carousel-caption p {
+      font-size: 1.25rem;
+    }
+    
+    .card-title {
+      font-size: 1.5rem;
+    }
+    
+    .card-subtitle {
+      font-size: 1rem;
+    }
+    
+    .card-text {
+      font-size: 1rem;
+    }
+  }  

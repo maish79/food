@@ -4,8 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import UserProfile
 
 
-
-
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
 
@@ -17,4 +15,7 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['bio', 'location', 'image']
-
+        widgets = {
+            'bio': forms.Textarea(attrs={'rows': 3}),
+        }
+    image = forms.ImageField(required=False)

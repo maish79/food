@@ -26,29 +26,32 @@ def register(request):
 def profile(request, username):
     user = get_object_or_404(User, username=username)
     user_profile = UserProfile.objects.get(user=user)
-    return render(request, 'user/user_profile.html', {'user_profile': user_profile})
+    if user_profile.image:
+        image_url = user_profile.image.url
+    else:
+        image_url = "https://res.cloudinary.com/dlclpbfkf/image/upload/v1682513141/placeholder_kffdba.png"
+    return render(request, 'user/user_profile.html', {'user_profile': user_profile, 'image_url': image_url})
 
 @login_required
 def user_profile(request):
     try:
         user_profile = UserProfile.objects.get(user=request.user)
     except UserProfile.DoesNotExist:
-        user_profile = None
+        return redirect('create_profile')
     return redirect('profile', username=request.user.username)
-
+    
 @login_required
 def edit_profile(request):
     user_profile = UserProfile.objects.get(user=request.user)
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
+        form = forms.UserProfileForm(request.POST, request.FILES, instance=user_profile)
         if form.is_valid():
-            user_profile = form.save(commit=False)
-            user_profile.location = form.cleaned_data.get('location')
-            user_profile.save()
+            form.save()
+            messages.success(request, 'Your profile has been updated.')
             return redirect('profile', username=request.user.username)
     else:
-        form = UserProfileForm(instance=user_profile)
-    return render(request, 'edit_profile.html', {'form': form})
+        form = forms.UserProfileForm(instance=user_profile)
+    return render(request, 'user/edit_profile.html', {'form': form})
 
 @login_required
 def create_profile(request):

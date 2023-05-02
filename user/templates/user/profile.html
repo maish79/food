@@ -1,14 +1,16 @@
 {% extends 'cuisine/base.html' %}
 
 {% block main-content %}
-    <h1>{{ user_profile.user }}</h1>
-    <img width="200px" height="200px" src="{{ user.image.url }}" alt="Profile Picture">
-    <p>{{ user_profile.bio }}</p>
-    <p>{{ user_profile.location }}</p>
-
-    {% if user.user_profile %}
-        <a href="{% url 'edit_profile' %}">Edit Profile</a>
-    {% else %}
-        <a href="{% url 'create_profile' %}">Create Profile</a>
-    {% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img width="200px" height="200px" src="{{ image_url }}" alt="Profile Picture">
+        </div>
+        <div class="col-md-8">
+            <h2>{{ user_profile.user.username }}</h2>
+            <p>{{ user_profile.bio }}</p>
+            <p>{{ user_profile.location }}</p>
+        </div>
+    </div>
+</div>
 {% endblock %}
