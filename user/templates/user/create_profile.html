@@ -1,10 +1,30 @@
 {% extends 'cuisine/base.html' %}
+{% load crispy_forms_tags %}
+{% load cloudinary %}
 
 {% block main-content %}
-  <h1>Create Profile</h1>
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-  </form>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4">Create Profile</h2>
+            <form method="post" enctype="multipart/form-data" class="form">
+              {% csrf_token %}
+              {{ form.as_p }}
+              
+              <!-- Display the image -->
+              {% if form.instance.image %}
+                <img src="{{ form.instance.image.url }}" alt="{{ request.user.username }}" class="img-fluid">
+              {% endif %}
+              
+              <div class="form-group mt-4">
+                <button type="submit" value="save" class="btn btn-primary btn-block">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .forms import UserProfileForm
+from .forms import UserProfileForm, UserRegisterForm
 from .models import UserProfile
 from . import forms
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -21,15 +23,10 @@ def register(request):
     return render(request, 'user/register.html', {'form': form})
 
 @login_required
-def profile(request):
-    try:
-        user_profile = UserProfile.objects.get(user=request.user)
-    except UserProfile.DoesNotExist:
-        # Handle the case where the user profile does not exist
-        # For example, you can redirect the user to a create profile page
-        return redirect('create-profile')
-    return render(request, 'user/profile.html', {'user_profile': user_profile})
-
+def profile(request, username):
+    user = get_object_or_404(User, username=username)
+    user_profile = UserProfile.objects.get(user=user)
+    return render(request, 'user/user_profile.html', {'user_profile': user_profile})
 
 @login_required
 def user_profile(request):
@@ -37,29 +34,36 @@ def user_profile(request):
         user_profile = UserProfile.objects.get(user=request.user)
     except UserProfile.DoesNotExist:
         user_profile = None
-    return render(request, 'user_profile.html', {'user_profile': user_profile})
+    return redirect('profile', username=request.user.username)
 
 @login_required
 def edit_profile(request):
+    user_profile = UserProfile.objects.get(user=request.user)
     if request.method == 'POST':
-       
-        form = UserProfileForm(request.POST, request.FILES, instance=request.user.userprofile)
+        form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
         if form.is_valid():
-            form.save()
-            return redirect('user/profile') # replace 'profile' with the name of your profile view
+            user_profile = form.save(commit=False)
+            user_profile.location = form.cleaned_data.get('location')
+            user_profile.save()
+            return redirect('profile', username=request.user.username)
     else:
-        form = UserProfileForm(instance=request.user.userprofile)
+        form = UserProfileForm(instance=user_profile)
     return render(request, 'edit_profile.html', {'form': form})
 
 @login_required
 def create_profile(request):
+    try:
+        user_profile = UserProfile.objects.get(user=request.user)
+    except UserProfile.DoesNotExist:
+        user_profile = None
+
     if request.method == 'POST':
-        form = UserProfileForm(request.POST)
+        form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
         if form.is_valid():
             user_profile = form.save(commit=False)
             user_profile.user = request.user
             user_profile.save()
             return redirect('user-profile')
     else:
-        form = UserProfileForm()
-    return render(request, 'create_profile.html', {'form': form})
+        form = UserProfileForm(instance=user_profile)
+    return render(request, 'user/create_profile.html', {'form': form})

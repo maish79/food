@@ -1,0 +1,16 @@
+{% extends 'cuisine/base.html' %}
+
+{% block main-content %}
+<div class="container">
+  <h1>{{ user }}</h1>
+  <img width="200px" height="200px" src="https://res.cloudinary.com/dlclpbfkf/image/upload/v1682513141/placeholder_kffdba.png" alt="Profile Picture">
+  <p>{{ user.profile }}</p>
+  <p>{{ user.location }}</p>
+
+  {% if user.user_profile %}
+      <a href="{% url 'edit_profile' user.username %}">Edit Profile</a>
+  {% else %}
+      <a href="{% url 'create_profile' %}">Create Profile</a>
+  {% endif %}
+</div>
+{% endblock %}
