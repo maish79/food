@@ -15,22 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from user import views as user_views
+from user.views import profile_view
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from user import views as user_views
+from user.views import profile_view
+from user.views import profile_edit
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('cuisine.urls')),
-    path('register/', user_views.register, name="user-register"),
-    path('user-profile/', user_views.user_profile, name='user-profile'),
-    path('profile/<str:username>', user_views.profile, name='profile'),
+    path('register/', user_views.register, name="register"),
     path('login', auth_views.LoginView.as_view(template_name="user/login.html"), name='login'),
     path('logout', auth_views.LogoutView.as_view(template_name="user/logout.html"), name='logout'),
-    path('edit_profile', user_views.edit_profile, name='edit_profile'),
-    path('create_profile/', user_views.create_profile, name='create_profile'),
-    
+    path('profile/<int:pk>/', profile_view, name='profile' ),
+    path('profile/edit/<int:pk>/', profile_edit, name='edit_profile'),
+
+   
     ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

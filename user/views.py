@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .forms import UserProfileForm, UserRegisterForm
-from .models import UserProfile
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import CreateView, UpdateView, DeleteView
+from .models import Profile
 from . import forms
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from django.views.generic import UpdateView
+from .forms import ProfileUpdateForm
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -22,51 +26,62 @@ def register(request):
         form = forms.UserRegisterForm()
     return render(request, 'user/register.html', {'form': form})
 
-@login_required
-def profile(request, username):
-    user = get_object_or_404(User, username=username)
-    user_profile = UserProfile.objects.get(user=user)
-    if user_profile.image:
-        image_url = user_profile.image.url
-    else:
-        image_url = "https://res.cloudinary.com/dlclpbfkf/image/upload/v1682513141/placeholder_kffdba.png"
-    return render(request, 'user/user_profile.html', {'user_profile': user_profile, 'image_url': image_url})
+
 
 @login_required
-def user_profile(request):
-    try:
-        user_profile = UserProfile.objects.get(user=request.user)
-    except UserProfile.DoesNotExist:
-        return redirect('create_profile')
-    return redirect('profile', username=request.user.username)
+def profile_view(request, pk):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('profile') # Redirect back to profile page
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+    return render(request, 'user/profile.html', context)
+
+
+@login_required
+def profile_edit(request, pk):
+    user = get_object_or_404(User, pk=pk)
     
-@login_required
-def edit_profile(request):
-    user_profile = UserProfile.objects.get(user=request.user)
-    if request.method == 'POST':
-        form = forms.UserProfileForm(request.POST, request.FILES, instance=user_profile)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Your profile has been updated.')
-            return redirect('profile', username=request.user.username)
-    else:
-        form = forms.UserProfileForm(instance=user_profile)
-    return render(request, 'user/edit_profile.html', {'form': form})
-
-@login_required
-def create_profile(request):
-    try:
-        user_profile = UserProfile.objects.get(user=request.user)
-    except UserProfile.DoesNotExist:
-        user_profile = None
+    if not hasattr(user, 'profile'):
+        return redirect('profile')
+    
+    profile = user.profile
 
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
-        if form.is_valid():
-            user_profile = form.save(commit=False)
-            user_profile.user = request.user
-            user_profile.save()
-            return redirect('user-profile')
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            if 'image' in request.FILES:
+                profile.image = request.FILES['image']
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('profile', pk=pk)
+
     else:
-        form = UserProfileForm(instance=user_profile)
-    return render(request, 'user/create_profile.html', {'form': form})
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+    }
+
+    return render(request, 'user/edit_profile.html', context)

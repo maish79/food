@@ -1,7 +1,9 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import UserProfile
+from .models import Profile
+from django.forms.widgets import FileInput
+
 
 
 class UserRegisterForm(UserCreationForm):
@@ -11,11 +13,21 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2' ]
 
-class UserProfileForm(forms.ModelForm):
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+
     class Meta:
-        model = UserProfile
-        fields = ['bio', 'location', 'image']
-        widgets = {
-            'bio': forms.Textarea(attrs={'rows': 3}),
-        }
-    image = forms.ImageField(required=False)
+        model = User
+        fields = ['username', 'email']
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['image']
+        
+        def __init__(self, *args, **kwargs):
+        
+        	super().__init__(*args, **kwargs)
+        	self.fields['image'].widget.attrs.update({'class': 'form-control-file'})
+        
