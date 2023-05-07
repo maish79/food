@@ -1,5 +1,5 @@
 
-
+/* navbar section */
 
 .navbar-img {
     font-size: 30px;
@@ -82,13 +82,16 @@ footer {
   .card-subtitle {
     font-size: 14px;
     color: #666;
+    margin-bottom: 10px;
   }
   
   .card-text {
     font-size: 16px;
     color: #333;
-    margin-bottom: 0;
+   
+    margin-top: 10px;
   }
+  
   
   /* Style for the form */
   form {

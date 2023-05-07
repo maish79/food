@@ -1,10 +1,21 @@
-{% extends 'cuisine/base.html' %} {% block main-content %}
-{% if user %}
-{{ user }}
-Profile Picture
-{{ user.profile }}
+{% extends 'cuisine/base.html' %}
 
-{{ user.location }}
-
-{% endif %} {% if user.user_profile %} Edit Profile {% else %} Create Profile {% endif %}
+{% block main-content %}
+  <div class="container">
+    {% if user %}
+      <h3>{{ user }}</h3>
+      <img src="{{ user.profile_picture.url }}" alt="Profile Picture" class="img-fluid">
+      <p>{{ user.profile }}</p>
+      <p><strong>Location:</strong> {{ user.location }}</p>
+    {% endif %}
+    <div class="card mt-3">
+      <div class="card-body">
+        {% if user.user_profile %}
+          <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit Profile</a>
+        {% else %}
+          <a href="{% url 'create_profile' %}" class="btn btn-primary">Create Profile</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
 {% endblock %}
