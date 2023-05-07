@@ -1,1 +1,1 @@
-web: gunicorn recipe2023.wsgi
+web: gunicorn recipe.wsgi
