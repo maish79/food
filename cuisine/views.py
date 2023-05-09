@@ -107,3 +107,6 @@ def contact_view(request):
 
 def success_view(request):
     return render(request, 'cuisine/success.html')
+    
+
+
