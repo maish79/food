@@ -23,7 +23,7 @@
             {% endif %}
             </div>
 
-        {% if object.author == user or user.is_staff %}
+        {% if object.author == request.user %}
         <div class="row">
             <div class="col-md-6">
                 <a class="btn btn-outline-info btn-block" href="{% url 'cuisine-update' object.id %}">Update</a>
