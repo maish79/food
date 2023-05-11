@@ -1,5 +1,7 @@
 #  Recipe App
 
+ This ia a  recipe app that utilizes a full-stack framework including Django, Python, HTML, and CSS. The app is designed to enable users to easily create, add, edit, and comment on recipes, and the website is fully responsive and functional.
+
 **Developer: Antony Maina**
 
 [Visit live website](https://recipe2023.herokuapp.com/)
@@ -14,21 +16,19 @@
     - [Features](#features)
     - [Future Features](#future-features)
 
-4. [Structure](#structure)
+4. [Wireframes](#wireframes)
 
-5. [Wireframes](#wireframes)
+5. [Database schema](#database-schema)
 
-6. [Database schema](#database-schema)
+6. [Surface](#surface)
 
-7. [Surface](#surface)
+7. [Technologies Used](#technologies-used)
 
-8. [Technologies Used](#technologies-used)
+8. [Testing](#testing)
 
-9. [Testing](#testing)
+9. [Deployment](#deployment)
 
-10. [Deployment](#deployment)
-
-11. [Credits](#credits)
+10. [Credits](#credits)
 
 # About
 My recipe app in Django is a great way to organize and share recipes online.The app typically includes features such as the ability to create, read, update and delete (CRUD) recipes
@@ -60,3 +60,73 @@ The recipe app is usually designed with a user-friendly interface that allows us
 - As a Site User I can register an account so that i can view recipes
 - As a Site user I can comment on the cuisine so that i can share my thoughts with others
 - As a Site user I can easily navigate through the site so that i can view the desired content
+
+#
+# Scope 
+
+## **Features**
+### **Home Page**
+*Navigation bar:* 
+- The navigation bar appears on every page so users can easily navigate through the site
+- Navigation bar has links for 'Home', 'About', 'Add cuisines', 'Contact', 'profile', 'login'  and 'Register'
+- When the user is logged in the users 'Profile' and 'Logout' link apppear
+- When the user registers a placeholder image appears and the user can add a picture at any time.
+- The navbar is fully responsive, collapsing into a hamburger menu for medium and small screen size
+
+*Hero Carusell:*
+- The hero carusell shows the user what the app ias about and the variuos type of cusines on the app.
+
+*Recipe/Cuisine:*
+Just below the carusell are the recipes that have be created by the user or by the admin.
+- At the top we have the 'author'
+- Description about the recipe comes at the second position
+- Ingredients about the recipe comes at the third position
+- Created on date of the recipe is also visualized in this section.
+- The view cuisine button is at the bottom of the card ab when clicked directs us to the comment section
+
+*Comments section*
+- Only logged in users can comment on a recipe
+- logged in users can only delete their own comments.
+- Admin can also delete comments.
+
+
+
+### **About Page**
+- The page highlights the team's goal to inspire and encourage people to get creative in the kitchen by providing a recipe menu that is accessible to everyone, regardless of their skill level. 
+- The team emphasizes the importance of making cooking fun and enjoyable for everyone and hopes that their website will inspire people to try new and exciting dishes.
+- Overall, the "about us" page is intended to provide a brief introduction to the team's philosophy and approach to cooking, and to encourage visitors to explore the recipe menu and try out some of the team's favorite dishes
+
+### **Add a cuisine**
+- This is the main page of the logged in user.
+- User can a add a title about the recipe he/she wants to create
+- User can add a description abou the recipe
+- User can add ingredients about the recipe 
+- User can add image of the recipe
+- when the user saves the image it it highlighted in the home page
+
+### **Contact Us**
+
+- The contact us page in this recipe app is typically a way for users to get in touch with the admin . 
+- It is a separate page that contains contact information i.e Name, Email and Subject.
+- It has a submit button which directs the message to the admin of the app.
+
+### **Profile**
+- In this section the user can see their logged in status
+- in this section the user can edit the placeholder image and update their own
+
+### **Login/Register**
+- The Register button takes users to the login page where they can also find a link to the Register page where they can create an account
+- when a user is logged in the logout button dynamically appears to show the status of the user.
+
+### **Footer**
+- Appears on every page and contains social media links
+- Links are opened in a new tab to avoid dragging users from our site
+
+# Wireframes
+All wireframes were created used [Balsamiq](https://balsamiq.com/)
+
+Wireframes for each device are linked here:
+
+
+
+
