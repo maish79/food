@@ -73,6 +73,11 @@ The recipe app is usually designed with a user-friendly interface that allows us
 - When the user registers a placeholder image appears and the user can add a picture at any time.
 - The navbar is fully responsive, collapsing into a hamburger menu for medium and small screen size
 
+<p align="center">
+<img src="assets/images/home.png" width="50%" height="50%">
+</p>
+
+
 *Hero Carusell:*
 - The hero carusell shows the user what the app ias about and the variuos type of cusines on the app.
 
@@ -83,18 +88,28 @@ Just below the carusell are the recipes that have be created by the user or by t
 - Ingredients about the recipe comes at the third position
 - Created on date of the recipe is also visualized in this section.
 - The view cuisine button is at the bottom of the card ab when clicked directs us to the comment section
-
+<p align="center">
+<img src="assets/images/recipe-cuisine.png" width="50%" height="50%">
+</p>
+5
 *Comments section*
 - Only logged in users can comment on a recipe
 - logged in users can only delete their own comments.
 - Admin can also delete comments.
 
+<p align="center">
+<img src="assets/images/recipe-cuisine.png" width="50%" height="50%">
+</p>
 
 
 ### **About Page**
 - The page highlights the team's goal to inspire and encourage people to get creative in the kitchen by providing a recipe menu that is accessible to everyone, regardless of their skill level. 
 - The team emphasizes the importance of making cooking fun and enjoyable for everyone and hopes that their website will inspire people to try new and exciting dishes.
 - Overall, the "about us" page is intended to provide a brief introduction to the team's philosophy and approach to cooking, and to encourage visitors to explore the recipe menu and try out some of the team's favorite dishes
+
+<p align="center">
+<img src="assets/images/about.png" width="50%" height="50%">
+</p> 
 
 ### **Add a cuisine**
 - This is the main page of the logged in user.
@@ -104,28 +119,49 @@ Just below the carusell are the recipes that have be created by the user or by t
 - User can add image of the recipe
 - when the user saves the image it it highlighted in the home page
 
+<p align="center">
+<img src="assets/images/add-cuisine.png" width="50%" height="50%">
+</p> 
+
 ### **Contact Us**
 
 - The contact us page in this recipe app is typically a way for users to get in touch with the admin . 
 - It is a separate page that contains contact information i.e Name, Email and Subject.
 - It has a submit button which directs the message to the admin of the app.
 
+<p align="center">
+<img src="assets/images/contact.png" width="50%" height="50%">
+</p> 
+
 ### **Profile**
 - In this section the user can see their logged in status
 - in this section the user can edit the placeholder image and update their own
+
+<p align="center">
+<img src="assets/images/profile.png" width="50%" height="50%">
+</p> 
 
 ### **Login/Register**
 - The Register button takes users to the login page where they can also find a link to the Register page where they can create an account
 - when a user is logged in the logout button dynamically appears to show the status of the user.
 
+<p align="center">
+<img src="assets/images/register.png" width="50%" height="50%">
+</p> 
+
 ### **Footer**
 - Appears on every page and contains social media links
 - Links are opened in a new tab to avoid dragging users from our site
+
+<p align="center">
+<img src="assets/images/footer.png" width="50%" height="45%">
+</p> 
 
 # Wireframes
 All wireframes were created used [Balsamiq](https://balsamiq.com/)
 
 Wireframes for each device are linked here:
+- [Desktop](assets/documents)
 
 
 

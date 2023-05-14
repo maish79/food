@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from cloudinary.models import CloudinaryField
 
+
 class Cuisine(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -20,6 +21,7 @@ class Cuisine(models.Model):
     def get_comments(self):
         return self.comments.order_by('-created_date')
 
+
 class Comment(models.Model):
     cuisine = models.ForeignKey(Cuisine, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
@@ -28,6 +30,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.author} - {self.cuisine}"
+
 
 class Contact(models.Model):
     name = models.CharField(max_length=200)
