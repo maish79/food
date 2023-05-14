@@ -74,12 +74,16 @@ The recipe app is usually designed with a user-friendly interface that allows us
 - The navbar is fully responsive, collapsing into a hamburger menu for medium and small screen size
 
 <p align="center">
-<img src="assets/images/home.png" width="50%" height="50%">
+<img src="assets/images/navbar.png" width="50%" height="50%">
 </p>
 
 
 *Hero Carusell:*
 - The hero carusell shows the user what the app ias about and the variuos type of cusines on the app.
+
+<p align="center">
+<img src="assets/images/carousell.png" width="50%" height="50%">
+</p>
 
 *Recipe/Cuisine:*
 Just below the carusell are the recipes that have be created by the user or by the admin.
@@ -88,17 +92,18 @@ Just below the carusell are the recipes that have be created by the user or by t
 - Ingredients about the recipe comes at the third position
 - Created on date of the recipe is also visualized in this section.
 - The view cuisine button is at the bottom of the card ab when clicked directs us to the comment section
+
 <p align="center">
 <img src="assets/images/recipe-cuisine.png" width="50%" height="50%">
 </p>
-5
+
 *Comments section*
 - Only logged in users can comment on a recipe
 - logged in users can only delete their own comments.
 - Admin can also delete comments.
 
 <p align="center">
-<img src="assets/images/recipe-cuisine.png" width="50%" height="50%">
+<img src="assets/images/add-delete-comment.png" width="50%" height="50%">
 </p>
 
 
@@ -161,8 +166,9 @@ Just below the carusell are the recipes that have be created by the user or by t
 All wireframes were created used [Balsamiq](https://balsamiq.com/)
 
 Wireframes for each device are linked here:
-- [Desktop](assets/documents)
+- [Balsamiq wireframes](assets/documents)
 
+# Database schema
 
 
 
