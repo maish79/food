@@ -170,5 +170,29 @@ Wireframes for each device are linked here:
 
 # Database schema
 
+<p align="center">
+<img src="assets/documents/database-schema.png" width="50%" height="50%">
+</p>
+
+## Models
+### **Cuisine Model**
+<p align="center">
+<img src="assets/images/class-cuisine.png" width="50%" height="50%">
+</p>
+
+### **Contact Model**
+<p align="center">
+<img src="assets/images/class-contact.png" width="50%" height="50%">
+</p>
+
+### **Profile Model**
+<p align="center">
+<img src="assets/images/class-profile.png" width="50%" height="50%">
+</p>
+
+### **Comment Model**
+<p align="center">
+<img src="assets/images/class-comment.png" width="50%" height="50%">
+</p>
 
 
