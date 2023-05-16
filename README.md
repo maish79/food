@@ -25,8 +25,16 @@
 7. [Technologies Used](#technologies-used)
 
 8. [Testing](#testing)
+    - [user story testing](#user-story-testing)
+    - [Automated testing](#automated-testing)
+    - [Performing tests on various devices](#performing-tests-on-various-devices)
+    - [Browser compatibility](#browser-compatibility)
+
+9.  [Bugs](#bugs)
 
 9. [Deployment](#deployment)
+  - [Forking the GitHub Repository](#forking-the-github-repository)
+  - [Making a Local Clone](#making-a-local-clone)
 
 10. [Credits](#credits)
 
@@ -250,10 +258,11 @@ Wireframes for each device are linked here:
   - [JShint](https://jshint.com/) for JavaScript quality
   - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) for performance, accessibility, progressive web apps, SEO analysis of the project code
 
+#
+
 # Testing
 
-
-## User Story Testing
+# User Story Testing
 
 1. As a site user, I can create an account to interact with recipes
 
@@ -322,3 +331,73 @@ Navigate to https://recipe2023.herokuapp.com/admin/cuisine/comment/ | Admin view
 | Step | Expected Result | Actual Result |
 |---|---|---|
 | Navigate to https://recipe2023.herokuapp.com/admin/cuisine/cuisine/ | Admin cuisine profile is displayed | works as expected |
+
+12. As a site owner, I want to increase my social media presence
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate until bottom of page | Links bring user to social media page  | Works as expected |
+
+# Automated testing
+
+Automated testing was done using the Django's unit tests from a Python standard library module: unittest. 
+
+# Performing tests on various devices
+
+The website was tested using Google Chrome Developer Tools Toggle Device Toolbar to simulate viewports of different devices.
+
+The website was tested on the following devices:
+- MacBook Pro
+- windows
+
+
+# Browser compatibility
+
+- Testing has been carried out on the following browsers:
+  - Google Chrome
+  - Safari
+  - Firefox
+  - Microsoft Edge
+  - Android Native Browser
+  - Google Chrome on Android
+
+
+## Bugs
+
+| **Bug** | **Fix** |
+| ------- | ------- |
+| Profile picture was failing to load | used enctype="multipart/form-data" in edit_profile template and CloudinaryImageField in models |
+
+## Future Considerations
+
+| **Feature** | 
+| ------- | 
+| Ability of user to leave likes on recipes |
+
+# Deployment
+This project was deployed using Github and Heroku.
+
+# Forking the GitHub Repository
+1. Go to the GitHub repository
+2. Click on Fork button in top right corner
+3. You will then have a copy of the repository in your own GitHub account.
+   
+# Making a Local Clone
+1. Go to the GitHub repository 
+2. Locate the Code button above the list of files and click it
+3. Highlight the "HTTPS" button to clone with HTTPS and copy the link
+4. Open commandline interface on your computer
+5. Change the current working directory to the one where you want the cloned directory
+6. Type git clone and paste the URL from the clipboard 
+  ```
+  $ git clone https://github.com/maish79/food
+  ```
+7. Press Enter to create your local clone
+
+## Credits
+
+### Images
+
+- Images used in this app were found on Unsplash
+- ReadMe inspiration from John Constant and Iris Smok
+- Stackoverflow, Django documentation.
