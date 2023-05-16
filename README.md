@@ -195,4 +195,130 @@ Wireframes for each device are linked here:
 <img src="assets/images/class-comment.png" width="50%" height="50%">
 </p>
 
+# Surface
 
+## Design 
+<p align="center">
+<img src="assets/images/coolors.png" width="60%" height="60%">
+</p>
+
+# Technologies Used
+
+## Languages 
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+- [Python](https://www.python.org/)
+
+## Frameworks, Libraries & Programs Used
+[GitHub](https://github.com/) - Holds the repository of my project, GitHub connects to GitPod and Heroku.
+
+[GitPod](https://gitpod.io/workspaces) – Connected to GitHub, GitPod hosted the coding space, allowing the project to be built and then committed to the GitHub repository. 
+
+[Heroku](https://www.heroku.com/) - Connected to the GitHub repository, Heroku is a cloud application platform used to deploy this project so the backend language can be utilised/tested. 
+
+[Django](https://www.djangoproject.com/) - This framework was used to build the foundations of this project
+
+[Gunicorn](https://gunicorn.org/) - Gunicorn is a pure-Python HTTP server for WSGI applications.
+
+[Dj Database URL](https://pypi.org/project/dj-database-url/) - This allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
+
+[Bootstrap](https://getbootstrap.com/) - Used to quickly add design to my website, Bootstrap focuses on mobile first design meaning this website is responsive across multiple devices ans screen sizes. 
+
+[Cloudinary](https://cloudinary.com/?utm_source=google&utm_medium=cpc&utm_campaign=Rbrand&utm_content=492438439811&utm_term=cloudinary&gclid=Cj0KCQiAt8WOBhDbARIsANQLp96hTerzfFJ_P9lX0tEYEdtM3tSsYB6fhw-x3wQxOO0oc4hXm-A2ZBUaAptIEALw_wcB) - Used to for recipe images and picture profile
+
+[Google Fonts](https://fonts.google.com/https://fonts.google.com/) - provide fonts for the website.
+
+[Balsamiq](https://balsamiq.com/) - was used to create site wireframes.
+
+[Unsplash](https://unsplash.com/) - were used for all the images
+
+[W3C Markup Validator](https://validator.w3.org/#validate_by_input) - was used to validate HTML
+
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - was used to validate CSS
+
+[Coolors](https://coolors.co/9df57a-3c444c-fee73b-ff4f98-2daaf3-a9bedb) - to make color palette
+
+[Chrome dev tools](https://developers.google.com/web/tools/chrome-devtools/) was used for debugging of the code and checking site for responsiveness
+
+[jQuery](https://jquery.com) was used for drop-down exercises filters on smaller screens
+
+[Elephant SQL](https://www.elephantsql.com/) – deployed project on Heroku uses an Elephant SQL database
+
+- Validation:
+  - [WC3 Validator](https://validator.w3.org/) was used to validate the html in the project
+  - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) to validate the css in the project
+  - [JShint](https://jshint.com/) for JavaScript quality
+  - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) for performance, accessibility, progressive web apps, SEO analysis of the project code
+
+# Testing
+
+
+## User Story Testing
+
+1. As a site user, I can create an account to interact with recipes
+
+| **Step** | **Expected Result** | **Actual Result** |
+|---|---|---|
+| Navigate to https://recipe2023.herokuapp.com/register/ and fill registration form | account is created for the user | Works as expected |
+
+2. As a Site user I can see if i'm logged in or out so that i can see what my status is
+
+| **Step** | **Expected Result** | **Actual Result** |
+|---|---|---|
+| Navigate to https://recipe2023.herokuapp.com/profile/17/ | logged in status is seen | works as expected | 
+
+3. As a Site user I can write comments on recipes so that I can leave my feedback
+
+| **Step** | **Expected Result** | **Actual Result** |
+|---|---|---|
+| Navigate to https://recipe2023.herokuapp.com/20/add-comment/ | feeddback form is displayed | works as expected |
+
+4. As a Registered user I can edit my profile so that i can update my personal information
+
+| **Step** | **Expected Result** | **Actual Result** |
+|---|---|---|
+| Navigate to https://recipe2023.herokuapp.com/profile/edit/17/ | edit profile is displayed | works as expected |
+
+5. As a Site user I can create a recipe so that i can contribute and get feedback from my skills
+
+| **Step** | **Expected Result** | **Actual Result** |
+|---|---|---|
+| Navigate to https://recipe2023.herokuapp.com/cuisine/create | create profile is displayed | works as expected |
+
+6. As a Site user I can delete my comment so that i can correct a mistake made
+
+| **Step** | **Expected Result** | **Actual Result** |
+|---|---|---|
+| Navigate to https://recipe2023.herokuapp.com/cuisine/20 | delete button is displayed | works as expected |
+
+7. As a site user, I can view the featured recipes on the home page
+
+| **Step** | **Expected Result** | **Actual Result** |
+|---|---|---|
+| Navigate to https://recipe2023.herokuapp.com/ | homepage recipes displayed | works as expected |
+| Navigate to https://recipe2023.herokuapp.com/ | navbar links displayed | works as expected |
+| Navigate to https://recipe2023.herokuapp.com/ | footer links displayed | works as expected |
+
+8. As a site admin, I can create, read, update and delete my recipes and articles to manage site content
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+ Navigate to https://recipe2023.herokuapp.com/admin/ |Admin dashboard is displayed | Works as expected |
+
+9. As a Site admin I can view contact comments so that i can make my cusine site more appealing to user
+
+| **Step** | **Expected Result** | **Actual Result** |
+|---|---|---|
+Navigate to https://recipe2023.herokuapp.com/admin/cuisine/comment/ | Admin view comment dashboard is diaplayed | works as expected |
+
+10. As site admin i can delete and add profiles.
+
+| **Step** | **Expected Result** | **Actual Result** |
+|---|---|---|
+| Navigate to https://recipe2023.herokuapp.com/admin/user/profile/ | Admin profile dashboard is displayed | works as expected |
+
+11. As site admin i can add, delete and edit cuisines
+
+| Step | Expected Result | Actual Result |
+|---|---|---|
+| Navigate to https://recipe2023.herokuapp.com/admin/cuisine/cuisine/ | Admin cuisine profile is displayed | works as expected |
