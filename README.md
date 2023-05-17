@@ -84,7 +84,7 @@ The recipe app is usually designed with a user-friendly interface that allows us
 - The navbar is fully responsive, collapsing into a hamburger menu for medium and small screen size
 
 <p align="center">
-<img src="assets/images/navbar.png" width="50%" height="50%">
+<img src="assets/images/navbar.png" width="100%" height="100%">
 </p>
 
 
@@ -92,7 +92,7 @@ The recipe app is usually designed with a user-friendly interface that allows us
 - The hero carusell shows the user what the app ias about and the variuos type of cusines on the app.
 
 <p align="center">
-<img src="assets/images/carousell.png" width="50%" height="50%">
+<img src="assets/images/carousell.png" width="100%" height="100%">
 </p>
 
 *Recipe/Cuisine:*
@@ -104,7 +104,7 @@ Just below the carusell are the recipes that have be created by the user or by t
 - The view cuisine button is at the bottom of the card ab when clicked directs us to the comment section
 
 <p align="center">
-<img src="assets/images/recipe-cuisine.png" width="50%" height="50%">
+<img src="assets/images/recipe-cuisine.png" width="100%" height="100%">
 </p>
 
 *Comments section*
@@ -113,7 +113,7 @@ Just below the carusell are the recipes that have be created by the user or by t
 - Admin can also delete comments.
 
 <p align="center">
-<img src="assets/images/add-delete-comment.png" width="50%" height="50%">
+<img src="assets/images/add-delete-comment.png" width="100%" height="100%">
 </p>
 
 
@@ -123,7 +123,7 @@ Just below the carusell are the recipes that have be created by the user or by t
 - Overall, the "about us" page is intended to provide a brief introduction to the team's philosophy and approach to cooking, and to encourage visitors to explore the recipe menu and try out some of the team's favorite dishes
 
 <p align="center">
-<img src="assets/images/about.png" width="50%" height="50%">
+<img src="assets/images/about.png" width="100%" height="100%">
 </p> 
 
 ### **Add a cuisine**
@@ -135,7 +135,7 @@ Just below the carusell are the recipes that have be created by the user or by t
 - when the user saves the image it it highlighted in the home page
 
 <p align="center">
-<img src="assets/images/add-cuisine.png" width="50%" height="50%">
+<img src="assets/images/add-cuisine.png" width="100%" height="100%">
 </p> 
 
 ### **Contact Us**
@@ -145,7 +145,7 @@ Just below the carusell are the recipes that have be created by the user or by t
 - It has a submit button which directs the message to the admin of the app.
 
 <p align="center">
-<img src="assets/images/contact.png" width="50%" height="50%">
+<img src="assets/images/contact.png" width="100%" height="100%">
 </p> 
 
 ### **Profile**
@@ -153,7 +153,7 @@ Just below the carusell are the recipes that have be created by the user or by t
 - in this section the user can edit the placeholder image and update their own
 
 <p align="center">
-<img src="assets/images/profile.png" width="50%" height="50%">
+<img src="assets/images/profile.png" width="100%" height="100%">
 </p> 
 
 ### **Login/Register**
@@ -161,7 +161,7 @@ Just below the carusell are the recipes that have be created by the user or by t
 - when a user is logged in the logout button dynamically appears to show the status of the user.
 
 <p align="center">
-<img src="assets/images/register.png" width="50%" height="50%">
+<img src="assets/images/register.png" width="100%" height="100%">
 </p> 
 
 ### **Footer**
@@ -169,7 +169,7 @@ Just below the carusell are the recipes that have be created by the user or by t
 - Links are opened in a new tab to avoid dragging users from our site
 
 <p align="center">
-<img src="assets/images/footer.png" width="70%" height="70%">
+<img src="assets/images/footer.png" width="100%" height="100%">
 </p> 
 
 # Wireframes
@@ -181,35 +181,35 @@ Wireframes for each device are linked here:
 # Database schema
 
 <p align="center">
-<img src="assets/documents/database-schema.png" width="70%" height="70%">
+<img src="assets/documents/database-schema.png" width="100%" height="100%">
 </p>
 
 ## Models
 ### **Cuisine Model**
 <p align="center">
-<img src="assets/images/class-cuisine.png" width="70%" height="70%">
+<img src="assets/images/class-cuisine.png" width="100%" height="100%">
 </p>
 
 ### **Contact Model**
 <p align="center">
-<img src="assets/images/class-contact.png" width="70%" height="70%">
+<img src="assets/images/class-contact.png" width="100%" height="100%">
 </p>
 
 ### **Profile Model**
 <p align="center">
-<img src="assets/images/class-profile.png" width="40%" height="40%">
+<img src="assets/images/class-profile.png" width="100%" height="100%">
 </p>
 
 ### **Comment Model**
 <p align="center">
-<img src="assets/images/class-comment.png" width="50%" height="50%">
+<img src="assets/images/class-comment.png" width="100%" height="100%">
 </p>
 
 # Surface
 
 ## Design 
 <p align="center">
-<img src="assets/images/coolors.png" width="60%" height="60%">
+<img src="assets/images/coolors.png" width="100%" height="100%">
 </p>
 
 # Technologies Used
