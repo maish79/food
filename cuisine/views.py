@@ -44,7 +44,6 @@ class CuisineUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView) :
         cuisine = self.get_object()
         return self.request.user == cuisine.author
 
-
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
@@ -59,7 +58,6 @@ class CuisineDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView) :
         return self.request.user == cuisine.author
 
 
-    
 def about(request):
     return render(request, 'cuisine/about.html')
 
@@ -79,6 +77,7 @@ def add_comment(request, cuisine_id):
         form = CommentForm()
     return render(request, 'cuisine/comment_form.html', {'form': form}) 
 
+
 @login_required
 @require_POST
 def delete_comment(request, comment_id):
@@ -86,6 +85,7 @@ def delete_comment(request, comment_id):
     if comment.author == request.user or request.user.is_staff:
         comment.delete()
     return redirect('cuisine-detail', pk=comment.cuisine.pk)
+    
 
 def contact_view(request):
     # If the form has been submitted...
@@ -104,6 +104,7 @@ def contact_view(request):
     else:
         form = ContactForm()
     return render(request, 'cuisine/contact.html', {'form': form})
+
 
 def success_view(request):
     return render(request, 'cuisine/success.html')

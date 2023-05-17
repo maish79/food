@@ -30,13 +30,15 @@
     - [Performing tests on various devices](#performing-tests-on-various-devices)
     - [Browser compatibility](#browser-compatibility)
 
-9.  [Bugs](#bugs)
+9. [Validation](#validation)
 
-9. [Deployment](#deployment)
+10.  [Bugs](#bugs) 
+
+11. [Deployment](#deployment)
   - [Forking the GitHub Repository](#forking-the-github-repository)
   - [Making a Local Clone](#making-a-local-clone)
 
-10. [Credits](#credits)
+12. [Credits](#credits)
 
 # About
 My recipe app in Django is a great way to organize and share recipes online.The app typically includes features such as the ability to create, read, update and delete (CRUD) recipes
@@ -167,7 +169,7 @@ Just below the carusell are the recipes that have be created by the user or by t
 - Links are opened in a new tab to avoid dragging users from our site
 
 <p align="center">
-<img src="assets/images/footer.png" width="50%" height="45%">
+<img src="assets/images/footer.png" width="70%" height="70%">
 </p> 
 
 # Wireframes
@@ -179,23 +181,23 @@ Wireframes for each device are linked here:
 # Database schema
 
 <p align="center">
-<img src="assets/documents/database-schema.png" width="50%" height="50%">
+<img src="assets/documents/database-schema.png" width="70%" height="70%">
 </p>
 
 ## Models
 ### **Cuisine Model**
 <p align="center">
-<img src="assets/images/class-cuisine.png" width="50%" height="50%">
+<img src="assets/images/class-cuisine.png" width="70%" height="70%">
 </p>
 
 ### **Contact Model**
 <p align="center">
-<img src="assets/images/class-contact.png" width="50%" height="50%">
+<img src="assets/images/class-contact.png" width="70%" height="70%">
 </p>
 
 ### **Profile Model**
 <p align="center">
-<img src="assets/images/class-profile.png" width="50%" height="50%">
+<img src="assets/images/class-profile.png" width="40%" height="40%">
 </p>
 
 ### **Comment Model**
@@ -350,6 +352,59 @@ The website was tested on the following devices:
 - MacBook Pro
 - windows
 
+## Validation
+
+The W3C Markup Validation Service was used to validate the HTML of the website.
+<details><summary>Home</summary>
+<img src="assets/documents/html-home.png">
+</details>
+
+<details><summary>Register</summary>
+<img src="assets/documents/html-register.png">
+</details>
+
+<details><summary>Login</summary>
+<img src="assets/documents/html-login.png">
+</details>
+
+<details><summary>Logout</summary>
+<img src="assets/documents/html-logout.png">
+</details>
+
+<details><summary>cuisines</summary>
+<img src="assets/documents/html-cuisines.png">
+</details>
+
+<details><summary>About</summary>
+<img src="assets/documents/html-about.png">
+</details>
+
+<details><summary>Create</summary>
+<img src="assets/documents/html-create.png">
+</details>
+
+<details><summary>Add Comment</summary>
+<img src="assets/documents/html-add-comment.png">
+</details>
+
+<details><summary>Contact</summary>
+<img src="assets/documents/html-contact.png">
+</details>
+
+
+### CSS Validation
+The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website. When validating all website, it passes with no errors.
+
+<details><summary>Style.css</summary>
+<img src="assets/documents/css-validator.png">
+</details>
+
+### JavaScript Validation
+JSHint JS Validation Service was used to validate the Javascript files. 
+
+<details><summary>Script.js</summary>
+<img src="assets/documents/Jshint.png">
+</details>
 
 # Browser compatibility
 
@@ -373,6 +428,7 @@ The website was tested on the following devices:
 | **Feature** | 
 | ------- | 
 | Ability of user to leave likes on recipes |
+| Implement a search functionality to allow users to search for recipes by keywords, ingredients, or tags |
 
 # Deployment
 This project was deployed using Github and Heroku.

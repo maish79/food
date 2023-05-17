@@ -2,8 +2,6 @@ from django.urls import path
 
 from .import views
 
-
- 
 urlpatterns = [
     path('', views.CuisineListView.as_view(), name='home'),
     path('cuisine/<int:pk>', views.CuisineDetailView.as_view(), name='cuisine-detail'),
@@ -17,5 +15,3 @@ urlpatterns = [
     path('success/', views.success_view, name='success'),
    
 ]
-
-
